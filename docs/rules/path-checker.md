@@ -1,4 +1,6 @@
-# eslint plugin for fsd path (`path-checker`)
+# Eslint plugin for fsd path (`for-fsd-path/path-checker`)
+
+<!-- end auto-generated rule header -->
 
 Please describe the origin of the rule here.
 

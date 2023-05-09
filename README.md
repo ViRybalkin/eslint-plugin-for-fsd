@@ -1,6 +1,6 @@
 # eslint-plugin-for-fsd-path
 
-eslint-plugin-for-fsd-path
+Eslint плагин для проверки что рамках одного слайса все пути должны быть относительными 
 
 ## Installation
 
@@ -42,7 +42,11 @@ Then configure the rules you want to use under the rules section.
 ## Rules
 
 <!-- begin auto-generated rules list -->
-TODO: Run eslint-doc-generator to generate the rules list.
+
+| Name                                       | Description |
+| :----------------------------------------- |:------------|
+| [path-checker](docs/rules/path-checker.md) |     проверки что рамках одного слайса все пути должны быть относительными    |
+
 <!-- end auto-generated rules list -->
 
 
