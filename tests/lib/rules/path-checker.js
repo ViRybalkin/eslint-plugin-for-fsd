@@ -16,16 +16,44 @@ const rule = require("../../../lib/rules/path-checker"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module'
+  }
+});
 ruleTester.run("path-checker", rule, {
   valid: [
-    // give me some code that won't trigger a warning
+    {
+      filename: 'C:/Users/tim/Desktop/javascript/GOOD_COURSE_test/src/entities/Article',
+      code: "import { NotificationList } from 'entities/NotificationList'",
+    },
+    {
+      filename: 'C:/Users/tim/Desktop/javascript/GOOD_COURSE_test/src/entities/Article',
+      code: "import { NotificationList } from '@/entities/NotificationList'",
+      options: [
+        {
+          alias: '@'
+        }
+      ]
+    }
   ],
 
   invalid: [
     {
-      code: "",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
+      filename:'C:/Users/tim/Desktop/javascript/GOOD_COURSE_test/src/entities/Article',
+      code: "import { NotificationList } from 'entities/Article/ui/Article.ts'",
+      errors: [{ message: "В рамках одного слайса все пути должны быть относительными"}],
+    },
+    {
+      filename: 'C:/Users/tim/Desktop/javascript/GOOD_COURSE_test/src/entities/Article',
+      code: "import { NotificationList } from '@/entities/Article/ui/Article.ts'",
+      errors: [{ message: "В рамках одного слайса все пути должны быть относительными"}],
+      options: [
+          {
+        alias: '@'
+      }
+      ],
     },
   ],
 });
