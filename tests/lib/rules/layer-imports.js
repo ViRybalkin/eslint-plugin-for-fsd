@@ -52,11 +52,11 @@ ruleTester.run("layer-imports", rule, {
       ]
     },
     {
-      filename: "/Users/virybalkin/WebstormProjects/ProjectForLearning/src/features/Article",
-      code:"import { NotificationList } from '@/features/Typography/ui/Article.ts'",
+      filename: "/Users/virybalkin/WebstormProjects/ProjectForLearning/config/extension.js",
+      code:"import { NotificationList } from 'webpack'",
       options: [
         {
-          ignoreImportsPatterns: ['@/features/Typography/ui/Article.ts'],
+          ignoreImportsPatterns: ['config/**/8'],
           alias: '@'
         }
       ]
