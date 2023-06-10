@@ -46,13 +46,20 @@ ruleTester.run("public-api-imports", rule, {
     invalid: [
         {
             filename:'C:/Users/tim/Desktop/javascript/GOOD_COURSE_test/src/entities/Article',
-            code: "import { NotificationList } from 'entities/Article/ui/Article.ts'",
+            code: "import { NotificationList } from '@/entities/Article/ui/Article.ts'",
             errors: [{ message: "Обсолютный импорт разрешен только из Public Api (index.ts)"}],
+            output: "import { NotificationList } from '@/entities/Article'",
+            options: [
+                {
+                    alias: '@'
+                }
+            ],
         },
         {
             filename: 'C:/Users/tim/Desktop/javascript/GOOD_COURSE_test/src/entities/Article',
             code: "import { NotificationList } from '@/entities/Article/ui/Article.ts'",
             errors: [{ message: "Обсолютный импорт разрешен только из Public Api (index.ts)"}],
+            output: "import { NotificationList } from '@/entities/Article'",
             options: [
                 {
                     alias: '@'
